@@ -11,11 +11,18 @@ return [0, 1].
 */
 
 var twoSum = function(nums, target) {
-  for (let i = 0; i < nums.length; i++) {
-      for (let j = i + 1; j < nums.length; j++) {
-          if (nums[i] + nums[j] === target) {
-              return [i, j]
-          }
-      }
-  }
+
+    let baseNum = 0;
+
+    while (baseNum < nums.length) {
+        let caseNum = baseNum + 1;
+        for (let i = caseNum; i < nums.length; i++) {
+            if (nums[baseNum] + nums[i] === target) {
+                return [baseNum, i]
+            }
+        }
+        baseNum++;
+    }
 };
+
+console.log(twoSum([3, 2, 3], 6))
