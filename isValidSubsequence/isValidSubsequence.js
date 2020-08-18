@@ -3,14 +3,6 @@ function isValidSubsequence(array, sequence) {
 	let index = 0;
 	let count = 0;
 
-	if (JSON.stringify(array) === JSON.stringify(sequence)) {
-		return true;
-	}
-
-	if (sequence.length === 1 && array.indexOf(sequence[0]) > -1) {
-		return true;
-	}
-
 	while (count < sequence.length) {
 		if (index === array.length) {
 			return false;
@@ -20,12 +12,7 @@ function isValidSubsequence(array, sequence) {
 		}
 		index++;
 	}
-	if (count !== sequence.length) {
-		return false
-	} else {
-		return true;
-	}
-
+	return count === sequence.length;
 }
 // Do not edit the line below.
 exports.isValidSubsequence = isValidSubsequence;
